@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Basil Thambi · Naval Architect</title>
+<meta name="description" content="Basil Thambi, naval architect and structural engineer in Dubai.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,700;1,7..72,400&display=swap">
+<style>
+:root{--page:#ffffff;--ink:#111111;--muted:#555555;--line:#e2e2e2;--accent:#8a5a12;--slot:#eceef0;--slot-ink:#4a545e;--hero:#3b4754;--hero-line:#55626f;--on-hero:#ffffff;--space-1:8px;--space-2:16px;--space-3:32px;--space-4:48px;--space-5:96px;--font-serif:"Literata", "Bookerly", Georgia, serif}
+html{scroll-behavior:smooth}body{margin:0}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+/* Basil Thambi portfolio: layout and components */
+.bt{background:var(--page);color:var(--ink);font-family:var(--font-serif);font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased}
+.bt *{box-sizing:border-box;margin:0;padding:0}
+.bt a{color:inherit;text-decoration:none}
+.bt a:hover{color:var(--accent)}
+.bt a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.bt h1,.bt h2,.bt h3{text-wrap:balance}
+.bt-hero{position:relative;height:640px;height:min(88svh,820px);min-height:520px;background:var(--hero);color:var(--on-hero);display:flex;flex-direction:column;justify-content:flex-end;padding:var(--space-4)}
+.bt-hero>svg,.bt-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.bt-hero>svg{stroke:var(--hero-line);fill:none}
+.bt-hero>img+.bt-scrim{position:absolute;inset:0;background:linear-gradient(transparent 35%,rgba(0,0,0,.65))}
+.bt-hero-text{position:relative}
+.bt-hero h1{font-size:88px;line-height:1.02;letter-spacing:-.02em}
+.bt-hero .bt-hero-text p{font-size:19px;line-height:1.6;max-width:34em;margin-top:var(--space-2)}
+.bt-hero .bt-tag{position:absolute;top:var(--space-3);right:var(--space-4);font-size:13px;border:1px solid var(--on-hero);padding:6px 12px}
+.bt-nav{position:sticky;top:0;z-index:5;background:var(--page);border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:var(--space-1) var(--space-3);justify-content:space-between;align-items:center;padding:14px var(--space-4);font-size:15px}
+.bt-nav strong{font-weight:700}
+.bt-nav ul{display:flex;gap:var(--space-3);list-style:none}
+.bt-section{padding:var(--space-5) var(--space-4);scroll-margin-top:56px}
+.bt-wrap{max-width:1100px;margin:0 auto}
+.bt h2{font-size:38px;line-height:1.15;letter-spacing:-.01em}
+.bt-about{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.bt-about-text{position:sticky;top:112px}
+.bt-about-text p{margin-top:var(--space-2);max-width:33em}
+.bt .bt-button{display:inline-block;margin-top:var(--space-3);border:1px solid var(--ink);padding:12px 22px;font-size:15px}
+.bt-photos{display:flex;flex-direction:column;gap:var(--space-4)}
+.bt-slot{background:var(--slot);color:var(--slot-ink);aspect-ratio:1/1;display:grid;place-items:center;text-align:center;padding:var(--space-3);font-size:15px}
+.bt-slot.tall{aspect-ratio:3/4}
+.bt-photos img{display:block;width:100%;height:auto}
+.bt figcaption{margin-top:var(--space-1);color:var(--muted);font-style:italic;font-size:13px;line-height:1.5}
+.bt-work{border-top:1px solid var(--line)}
+.bt-grid{display:grid;grid-template-columns:repeat(3,1fr);margin-top:var(--space-4);border-top:1px solid var(--line);border-left:1px solid var(--line);list-style:none}
+.bt-card{aspect-ratio:1/1;padding:var(--space-3);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.bt-card span{display:block;color:var(--accent);font-weight:700;font-size:13px;letter-spacing:.08em;font-variant-numeric:tabular-nums}
+.bt-card h3{font-size:18px;line-height:1.4;margin-top:var(--space-1)}
+.bt .bt-card p{margin-top:var(--space-2);color:var(--muted);font-size:15px;line-height:1.7}
+.bt-contact{border-top:1px solid var(--line);text-align:center}
+.bt-contact dl{display:grid;grid-template-columns:repeat(4,auto);justify-content:center;gap:var(--space-3) var(--space-4);margin-top:var(--space-4)}
+.bt-contact dt{color:var(--muted);font-style:italic;font-size:13px}
+.bt-contact dd{font-size:17px;overflow-wrap:anywhere}
+.bt-contact dd a{border-bottom:1px solid var(--line)}
+.bt .bt-small{margin-top:var(--space-5);color:var(--muted);font-size:13px}
+@media (max-width:1040px){.bt-grid{grid-template-columns:repeat(2,1fr)}.bt-contact dl{grid-template-columns:repeat(2,auto)}}
+@media (max-width:760px){
+.bt-hero{padding:var(--space-3)}.bt-hero .bt-tag{right:var(--space-3)}.bt-hero h1{font-size:52px}
+.bt-nav{padding:12px var(--space-3)}.bt-nav ul{gap:var(--space-2)}
+.bt-section{padding:64px var(--space-3)}.bt h2{font-size:30px}
+.bt-about{grid-template-columns:1fr;gap:var(--space-4)}.bt-about-text{position:static}
+.bt-grid{grid-template-columns:1fr}.bt-contact dl{grid-template-columns:1fr}}
+@media (max-width:420px){.bt-card{aspect-ratio:auto}}
+</style>
+</head>
+<body>
+<div class="bt">
+<header class="bt-hero" id="top">
+ <!-- Replace the svg with <img src="photos/hero.jpg" alt="..."><div class="bt-scrim"></div> -->
+ <svg viewBox="0 0 1280 720" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <path d="M0 450H1280M0 510H1280M0 570H1280" stroke-dasharray="2 8"/>
+  <path d="M520 250C700 420 1000 450 1280 400M520 250H1280M600 320C760 440 1010 470 1280 432M700 380C840 470 1040 495 1280 465"/>
+  <path d="M680 250V470M840 250V482M1000 250V478M1160 250V450"/>
+ </svg>
+ <span class="bt-tag">Hero photo placeholder</span>
+ <div class="bt-hero-text">
+  <h1>Basil<br>Thambi</h1>
+  <p>Naval architect and structural engineer in Dubai, working on offshore and marine projects from bid estimate to class and warranty approval.</p>
+ </div>
+</header>
+<nav class="bt-nav" aria-label="Sections"><a href="#top"><strong>Basil Thambi</strong></a>
+ <ul><li><a href="#about">About</a></li><li><a href="#what-i-do">What I do</a></li><li><a href="#contact">Contact</a></li></ul></nav>
+<main>
+<section class="bt-section" id="about"><div class="bt-wrap bt-about">
+ <div class="bt-about-text">
+  <h2>Engineering for work at sea.</h2>
+  <p>I am a naval architect and structural engineer with over nine years in offshore and marine engineering. My work covers loadout and seafastening, lifting and rigging, tow stability, deck strength, and putting launch and recovery systems (LARS) and survey equipment onto vessels.</p>
+  <p>I have led engineering teams, been the client's main contact on several projects and checked the work of junior engineers. On one project for Safeen (for ADNOC), I led the planning and coordination to transport and load out more than 3,000 concrete subsea sleepers.</p>
+  <p>I studied Naval Architecture and Offshore Engineering at AMET University, Chennai. I speak English, Malayalam and Hindi.</p>
+  <a class="bt-button" href="#contact">Get in touch</a>
+ </div>
+ <div class="bt-photos">
+  <figure><div class="bt-slot">Photo 1 placeholder<br>Square, e.g. on a vessel or site visit</div><figcaption>Caption for photo 1</figcaption></figure>
+  <figure><div class="bt-slot tall">Photo 2 placeholder<br>Portrait, e.g. a loadout or lift</div><figcaption>Caption for photo 2</figcaption></figure>
+ </div>
+</div></section>
+<section class="bt-section bt-work" id="what-i-do"><div class="bt-wrap">
+ <h2>What I do</h2>
+ <ul class="bt-grid">
+  <li class="bt-card"><span>01</span><h3>Marine Operations</h3><p>Loadout engineering, seafastening design, tow stability analysis, bollard pull checks and barge longitudinal strength checks.</p></li>
+  <li class="bt-card"><span>02</span><h3>Lifting &amp; Rigging</h3><p>Lift plans and crane capacity studies, rigging with spreader bar and padeye design, and pile, conductor and riser upending.</p></li>
+  <li class="bt-card"><span>03</span><h3>Structural Engineering</h3><p>Structural design and analysis, deck strength checks and reinforcement, grillages, mezzanine decks and equipment foundations.</p></li>
+  <li class="bt-card"><span>04</span><h3>Naval Architecture</h3><p>Stability booklets, scantling calculations, tonnage and stability checks, and EEDI/EEXI compliance.</p></li>
+  <li class="bt-card"><span>05</span><h3>Vessel Mobilisation</h3><p>LARS and survey equipment: seafastening and grillage design, main deck strength checks, stability addenda and class approval.</p></li>
+  <li class="bt-card"><span>06</span><h3>Delivery &amp; Approvals</h3><p>Calculations, reports and fabrication drawings, with coordination across class (ABS, DNV, LR) and marine warranty surveyors.</p></li>
+ </ul>
+</div></section>
+</main>
+<footer class="bt-section bt-contact" id="contact"><div class="bt-wrap">
+ <h2>Contact</h2>
+ <dl>
+  <div><dt>Email</dt><dd><a href="mailto:btkakkadan@gmail.com">btkakkadan@gmail.com</a></dd></div>
+  <div><dt>Phone</dt><dd><a href="tel:+971502056491">+971 50 205 6491</a></dd></div>
+  <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/basil-thambi">in/basil-thambi</a></dd></div>
+  <div><dt>Location</dt><dd>Dubai, UAE</dd></div>
+ </dl>
+ <p class="bt-small">&copy; 2026 Basil Thambi</p>
+</div></footer>
+</div>
+</body>
+</html>
